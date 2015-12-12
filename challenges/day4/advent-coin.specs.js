@@ -4,14 +4,14 @@ describe('advent coin', function() {
 
   this.timeout(60000)
 
-  describe.only('get smallest int', function() {
+  describe.skip('get smallest int', function() {
     const testCases = [
       {input: 'abcdef', expectedOutput: 609043},
       {input: 'pqrstuv', expectedOutput: 1048970},
       {input: 'bgvyzdsv', expectedOutput: 254575},
     ]
     testCases.forEach(test => {
-      it.skip(`input '${test.input}' should yield ${test.expectedOutput}`, function() {
+      it(`input '${test.input}' should yield ${test.expectedOutput}`, function() {
         expect(adventCoin.getSmallestIntForHashStartingWith(test.input, '00000')).to.equal(test.expectedOutput)
       })
     })
