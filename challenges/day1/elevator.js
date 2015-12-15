@@ -1,12 +1,13 @@
-function matchCount(s, regex) {
+function countMatches(s, regex) {
   let matches = s.match(regex)
   if (matches === null) return 0
   else return matches.length
 }
+
 export default {
   getFloor(input) {
-    let up = matchCount(input, /\(/g)
-    let down = matchCount(input, /\)/g)
+    let up = countMatches(input, /\(/g)
+    let down = countMatches(input, /\)/g)
     return up - down
   },
 
