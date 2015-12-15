@@ -12,16 +12,15 @@ export default {
   },
 
   getBasementEntryPosition(input) {
-    let s = input.slice(0)
+    let directions = input.split('')
     let floor = 0
     let idx = 0
-    while (s.length > 0 && floor >= 0) {
-      idx++
-      let movement = s[0] === '(' ? 1 : -1
+    while (idx < directions.length && floor >= 0) {
+      let movement = directions[idx] === '(' ? 1 : -1
       floor += movement
-      s = s.slice(1)
+      idx++
     }
     if (floor === -1) return idx
-    throw new Error('You never entered the basement!')
+    else throw new Error('Santa never entered the basement!')
   }
 }
