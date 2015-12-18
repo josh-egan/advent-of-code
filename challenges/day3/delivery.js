@@ -1,29 +1,43 @@
-import _ from 'lodash'
+function stringifyLocation(location) {
+  return `{ x: ${location.x}, y: ${location.y} }`
+}
 
 export default {
   getNumberOfHousesVisited(directions) {
     let location = {x: 0, y: 0}
-    let locationsVisited = []
-    locationsVisited.push(_.clone(location))
+    let locationsVisited = {}
+    let locationsVisitedCount = 0
+
+    locationsVisited[stringifyLocation(location)] = true
+    locationsVisitedCount++
+
     directions.split('').forEach(char => {
       if (char === '>') location.x++
       if (char === '<') location.x--
       if (char === '^') location.y++
       if (char.toLowerCase() === 'v') location.y--
 
-      if (_.find(locationsVisited, location) === undefined)
-        locationsVisited.push(_.clone(location))
+      let stringifiedLocation = stringifyLocation(location)
+      if (!locationsVisited[stringifiedLocation]) {
+        locationsVisited[stringifiedLocation] = true
+        locationsVisitedCount++
+      }
     })
 
-    return locationsVisited.length
+    return locationsVisitedCount
   },
 
   getHousesVisitedWithRoboSanta(directions) {
     let santaLocation = {x: 0, y: 0}
     let robotLocation = {x: 0, y: 0}
     let santasTurn = true
-    let locationsVisited = []
-    locationsVisited.push(_.clone(santaLocation))
+
+    let locationsVisited = {}
+    let locationsVisitedCount = 0
+
+    locationsVisited[stringifyLocation(santaLocation)] = true
+    locationsVisitedCount++
+
     directions.split('').forEach(char => {
       let location = santasTurn ? santaLocation : robotLocation
       santasTurn = !santasTurn
@@ -32,10 +46,13 @@ export default {
       if (char === '^') location.y++
       if (char.toLowerCase() === 'v') location.y--
 
-      if (_.find(locationsVisited, location) === undefined)
-        locationsVisited.push(_.clone(location))
+      let stringifiedLocation = stringifyLocation(location)
+      if (!locationsVisited[stringifiedLocation]) {
+        locationsVisited[stringifiedLocation] = true
+        locationsVisitedCount++
+      }
     })
 
-    return locationsVisited.length
+    return locationsVisitedCount
   }
 }
