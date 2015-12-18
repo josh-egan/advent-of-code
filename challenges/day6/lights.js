@@ -31,6 +31,19 @@ export default {
   }
 }
 
+function getFinalLightGrid(instructions, transforms) {
+  if (!instructions || instructions.length === 0) return []
+
+  let lightsGrid = createGrid()
+
+  instructions.forEach(instruction => {
+    let parsedOperation = parseInstruction(instruction, transforms)
+    parsedOperation(lightsGrid)
+  })
+
+  return lightsGrid
+}
+
 function createGrid() {
   let grid = []
   for (var x = 0; x < 1000; x++) {
@@ -40,17 +53,6 @@ function createGrid() {
     }
   }
   return grid
-}
-
-function getFinalLightGrid(instructions, transforms) {
-  let lightsGrid = createGrid()
-
-  instructions.forEach(instruction => {
-    let parsedOperation = parseInstruction(instruction, transforms)
-    parsedOperation(lightsGrid)
-  })
-
-  return lightsGrid
 }
 
 function parseInstruction(instruction, transforms) {

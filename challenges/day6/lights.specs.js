@@ -1,6 +1,6 @@
 import lights from './lights'
 
-describe('lights', function() {
+describe.skip('lights', function() {
 
   this.timeout(10000)
 
