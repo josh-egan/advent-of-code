@@ -2,11 +2,6 @@ import readline from 'readline'
 import fs from 'fs'
 import path from 'path'
 
-function numMatches(str, regExp) {
-  let matches = str.match(regExp)
-  return matches ? matches.length : 0
-}
-
 export default {
   strings(fileName) {
     let originalCodeLength = 0
