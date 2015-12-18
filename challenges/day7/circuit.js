@@ -1,6 +1,4 @@
-function _isNumber(text) {
-  return /^\d+$/g.test(text)
-}
+const MAX_UNSIGNED_16_BIT_INT = 65535
 
 class Circuit {
 
@@ -42,12 +40,16 @@ class Circuit {
   }
 
   _parseInput(text) {
-    if (_isNumber(text))
+    if (Circuit._isNumber(text))
       return new ConstantValueGate(text)
     else {
       this._assertWire(text)
       return this.wires[text]
     }
+  }
+
+  static _isNumber(text) {
+    return /^\d+$/g.test(text)
   }
 
   _assertWire(wireName) {
@@ -129,7 +131,7 @@ class NotGate {
   }
 
   getValue() {
-    return (~ this.input.getValue()) & 65535
+    return (~ this.input.getValue()) & MAX_UNSIGNED_16_BIT_INT
   }
 }
 
