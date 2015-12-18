@@ -1,3 +1,2 @@
---reporter progress
 --require babel/register
 --require test/assign-globals
