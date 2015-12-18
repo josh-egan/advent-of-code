@@ -4,7 +4,7 @@ module.exports = function (wallaby) {
    return {
      files: [
        'test/assign-globals.js',
-       'challenges/**/*.js',
+       'challenges/**/*.*',
        '!challenges/**/*.specs.js'
      ],
      tests: [
