@@ -16,13 +16,13 @@ describe('lookAndSay', function() {
       })
     })
 
-    it('should solve the puzzle', function() {
+    it.skip('should solve the puzzle', function() {
       const input = '1321131112'
       const cycles = 40
       expect(lookAndSay.play(input, cycles).length).to.eql(492982)
     })
 
-    it('should solve the 2nd puzzle', function() {
+    it.skip('should solve the 2nd puzzle', function() {
       this.timeout(10000)
       const input = '1321131112'
       const cycles = 50
