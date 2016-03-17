@@ -24,7 +24,10 @@ function parseInput(inputArray) {
 
 function getPossibleSeatingArrangements(seatingPreferences) {
   let keys = Object.keys(seatingPreferences)
-  return getPermutations(keys)
+  let firstKey = keys.shift()
+  let permutations = getPermutations(keys)
+  permutations.forEach(p => p.unshift(firstKey))
+  return permutations
 }
 
 function getPermutations (inputs) {
