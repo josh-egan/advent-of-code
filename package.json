@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha challenges*/**/*.specs.js",
+    "test": "mocha \"./challenges*/**/*.specs.js\"",
     "test-watch": "npm test -- -w",
     "tw": "npm test -- -w"
   },
