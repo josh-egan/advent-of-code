@@ -93,10 +93,9 @@ function buildGraph(input) {
 }
 
 class Node {
-  edges = []
-
   constructor(id) {
     this.id = id
+    this.edges = []
   }
 
   addEdge(id, distance) {

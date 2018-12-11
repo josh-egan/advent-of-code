@@ -2,9 +2,8 @@ const MAX_UNSIGNED_16_BIT_INT = 65535
 
 class Circuit {
 
-  wires = {}
-
   constructor(instructions) {
+    this.wires = {}
     instructions.forEach(i => this._connectWire(i))
   }
 

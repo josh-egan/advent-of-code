@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha challenges/**/*.specs.js",
+    "test": "mocha challenges*/**/*.specs.js",
     "test-watch": "npm test -- -w",
     "tw": "npm test -- -w"
   },
@@ -12,13 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel": "5.8.34",
-    "lodash": "3.10.1",
-    "node-forge": "0.6.38"
+    "esm": "3.0.84",
+    "lodash": "4.17.11",
+    "node-forge": "0.7.6"
   },
   "devDependencies": {
-    "babel-runtime": "5.8.34",
-    "chai": "3.4.1",
-    "mocha": "2.3.4"
+    "chai": "4.2.0",
+    "mocha": "5.2.0"
   }
 }
